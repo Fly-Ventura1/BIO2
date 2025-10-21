@@ -1,0 +1,175 @@
+/* Paleta de Colores:
+   - Negro: #1a1a1a, #000000
+   - Gris Oscuro: #333333, #555555
+   - Gris Claro/Blanco Sucio: #e0e0e0, #f0f0f0
+   - Rojo de Acento: #c0392b (rojo sangre), #e74c3c (rojo más brillante)
+*/
+
+/* --- Estilos Generales --- */
+body {
+    font-family: 'Times New Roman', serif; /* Tipografía más clásica/teatral */
+    margin: 0;
+    padding: 0; /* Quitamos padding aquí para controlarlo en el container */
+    line-height: 1.8; /* Mayor espaciado para mejor legibilidad */
+    color: #e0e0e0; /* Texto claro sobre fondo oscuro */
+    background-color: #1a1a1a; /* Fondo negro profundo */
+    text-rendering: optimizeLegibility; /* Mejora la renderización del texto */
+}
+
+/* --- Contenedor Principal --- */
+.container {
+    max-width: 900px; /* Un poco más ancho */
+    margin: 50px auto; /* Centrado con margen superior/inferior */
+    background: #000000; /* Fondo negro para el contenido */
+    padding: 50px 60px; /* Más padding interno */
+    border-radius: 5px; /* Bordes ligeramente suavizados */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+    border: 1px solid #333333; /* Borde sutil para definir */
+    position: relative; /* Necesario para posicionar la burbuja */
+}
+
+/* --- Burbuja de Perfil --- */
+.profile-bubble {
+    width: 150px; /* Tamaño de la burbuja */
+    height: 150px;
+    border-radius: 50%; /* Hace el div circular */
+    overflow: hidden; /* Corta la imagen para que encaje en el círculo */
+    border: 4px solid #c0392b; /* Borde rojo teatral */
+    box-shadow: 0 0 0 7px rgba(192, 57, 43, 0.3); /* Resplandor rojo sutil */
+    position: absolute; /* Posicionamiento absoluto respecto al .container */
+    top: -75px; /* Sube la burbuja a la mitad de su altura por encima del container */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajuste final para centrado perfecto */
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    background-color: #333333; /* Fondo por si la imagen tarda en cargar */
+    display: flex; /* Para centrar la imagen si es más pequeña */
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img {
+    width: 100%; /* La imagen ocupa todo el ancho de la burbuja */
+    height: 100%; /* La imagen ocupa todo el alto */
+    object-fit: cover; /* Recorta la imagen para que cubra el área sin distorsionarse */
+    display: block;
+}
+
+/* --- Encabezados --- */
+h1 {
+    font-family: 'Georgia', serif; /* Fuente más formal para el título principal */
+    font-size: 2.8em; /* Tamaño grande para el título */
+    color: #c0392b; /* Rojo prominente */
+    text-align: center;
+    border-bottom: 2px solid #555555; /* Línea divisoria gris */
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    margin-top: 80px; /* Margen para dejar espacio a la burbuja */
+    letter-spacing: 2px; /* Un poco de espaciado entre letras */
+    text-transform: uppercase; /* Todo en mayúsculas para drama */
+}
+
+h2 {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.6em;
+    color: #c0392b; /* Rojo para los subtítulos */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-left: 5px solid #555555; /* Línea vertical gris */
+    padding-left: 15px;
+    font-weight: normal; /* No tan negrita para subtítulos */
+    letter-spacing: 1px;
+}
+
+/* --- Párrafos y Listas --- */
+p {
+    text-align: justify;
+    margin-bottom: 20px;
+    color: #e0e0e0; /* Texto gris claro */
+}
+
+ul {
+    list-style-type: none; /* Quitamos el estilo de viñeta por defecto */
+    margin-left: 0;
+    padding-left: 20px;
+    border-left: 1px dashed #555555; /* Línea de puntos gris para la lista */
+}
+
+li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px; /* Espacio para la viñeta custom */
+}
+
+li:before {
+    content: '▪'; /* Viñeta personalizada con un cuadrado sólido */
+    color: #c0392b; /* Color rojo para la viñeta */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em;
+    line-height: 1.8; /* Asegura que la viñeta se alinee con el texto */
+}
+
+/* --- Estilos Específicos de Secciones --- */
+.datos-clave p {
+    font-weight: bold;
+    color: #f0f0f0; /* Un poco más blanco para estos datos */
+}
+
+.introduccion {
+    border-bottom: 1px solid #333333; /* Separador más robusto */
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.logros ul {
+    background-color: #0d0d0d; /* Fondo aún más oscuro para la lista */
+    padding: 25px;
+    border-radius: 5px;
+    border: 1px solid #333333;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4); /* Sombra interna para profundidad */
+}
+
+/* Responsive básico para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        margin: 30px auto;
+        padding: 30px;
+    }
+    h1 {
+        font-size: 2em;
+        margin-top: 60px;
+    }
+    .profile-bubble {
+        width: 120px;
+        height: 120px;
+        top: -60px;
+        border-width: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    h1 {
+        font-size: 1.8em;
+        margin-top: 50px;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+    p, li {
+        font-size: 0.9em;
+    }
+    .profile-bubble {
+        width: 100px;
+        height: 100px;
+        top: -50px;
+        border-width: 2px;
+    }
+}
